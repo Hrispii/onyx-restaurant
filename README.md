@@ -1,5 +1,12 @@
 # ONYX — Restaurant Booking System
 
+!
+You can cheak this site by yourself, just go to
+https://onyx-restaurant-rosy.vercel.app
+and touch it!
+You can also cheak /admin
+!
+
 A full-stack restaurant website with an online reservation system and an admin dashboard for managing bookings.
 
 > **Demo credentials for the admin panel:** `admin@onyx.kz` / `admin123`

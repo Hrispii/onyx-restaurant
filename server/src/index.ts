@@ -12,11 +12,9 @@ const app = new Hono()
 app.use('*', logger())
 app.use('*', cors({
   origin: (origin) => {
-    const allowed = [
-      'http://localhost:5173',
-      process.env.CLIENT_URL,
-    ].filter(Boolean)
-    return allowed.includes(origin) ? origin : allowed[0]
+    if (!origin) return origin
+    const allowed = ['http://localhost:5173', process.env.CLIENT_URL].filter(Boolean)
+    return allowed.includes(origin) ? origin : null
   },
   allowMethods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
   allowHeaders: ['Content-Type', 'Authorization'],

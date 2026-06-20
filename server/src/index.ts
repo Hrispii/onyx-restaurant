@@ -11,7 +11,13 @@ const app = new Hono()
 // Middleware
 app.use('*', logger())
 app.use('*', cors({
-  origin: ['http://localhost:5173', 'https://your-frontend.vercel.app'],
+  origin: (origin) => {
+    const allowed = [
+      'http://localhost:5173',
+      process.env.CLIENT_URL,
+    ].filter(Boolean)
+    return allowed.includes(origin) ? origin : allowed[0]
+  },
   allowMethods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
   allowHeaders: ['Content-Type', 'Authorization'],
 }))

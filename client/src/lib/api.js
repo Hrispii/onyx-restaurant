@@ -1,4 +1,4 @@
-const BASE = import.meta.env.onyx-restaurant-production.up.railway.app || '/api'
+const BASE = import.meta.env.VITE_API_URL || '/api'
 
 const headers = (withAuth = false) => ({
   'Content-Type': 'application/json',
